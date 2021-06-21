@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "export NODE_MODULE=~/tmp/node_modules/19hc-testing/node_modules && mkdir -p ${NODE_MODULE}  && ln -snf ${NODE_MODULE} node_modules",
     "start": "node index.js",
     "test": "jest"
   },
