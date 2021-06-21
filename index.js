@@ -12,25 +12,28 @@ async function testLogin(testCaseTitle) {
 		await driver.findElement(By.id("Password")).sendKeys("123-456789");
 		await driver.findElement(By.id("LoginButton")).click();
 
-		let menuItem = await driver.wait(until.elementLocated(By.id('Header_LoginViewHeader_LoginName1')), 1000);
+		let menuItem = await driver.wait(until.elementLocated(By.id('Header_LoginViewHeader_LoginName1')), 2000);
 		await menuItem.click();
 		await driver.findElement(By.id("Header_LoginViewHeader_HyperLink4")).click();
 
-		let fullnameLabel = await driver.wait(until.elementLocated(By.id("MainContent_ProfileSidebar_LabelUserFullName")), 1000);
+		let fullnameLabel = await driver.wait(until.elementLocated(By.id("MainContent_ProfileSidebar_LabelUserFullName")), 2000);
 		let fullname = await fullnameLabel.getText();
 
 		console.log(`TESTCASE ${testCaseTitle} PASSED ? : `, fullname === "Hien Luong");
 	} catch(e) {
 		console.log("Error message: ", e);
 	}finally {
-		driver.quit();
+		setTimeout(() => {
+			driver.quit();
+		}, 5000);
 	}
 };
 //==================== End Automation tests ====================
 
 //==================== Main ====================
-async main function() {
+async function main() {
 	await testLogin("Login with exsiting account");
+	// await testOrder();
 }
 //==================== End Main ====================
 
